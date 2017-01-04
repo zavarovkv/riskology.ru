@@ -1,0 +1,296 @@
+header {
+    padding: 20px;
+    background-color: rgb(255, 230, 148);
+    background-size: 256px 256px;
+}
+footer {
+    color: white;
+    background-color: #4A4A4A;
+    text-align: center;
+    margin-top: 30px;
+}
+
+body {
+    color: #4A4A4A;
+}
+
+input[type="text"] {
+    width: 100%;
+    border-radius: 4px;
+    padding: 18px;
+}
+
+.container {
+    padding-bottom: 30px;
+}
+
+.container-footer {
+    padding: 20px;
+}
+
+.risk-container {
+    background-color: rgb(255, 230, 148);
+    padding: 5px 20px;
+    margin-bottom: 20px;
+}
+
+.risk-1, .risk-2, .risk-3, .risk-4, .risk-5 {
+    display: none;
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
+
+.vertical {
+    padding: 20px 5px;
+}
+
+.subscribe {
+    background-color: rgb(255, 230, 148);
+    color: #333;
+    padding: 5px;
+}
+
+.input-subscribe {
+    width: 210px !important;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+.chart {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.result-container {
+    display: none;
+}
+
+#chart_div {
+    display: inline-block;
+    width: 700px;
+    height: 400px;
+}
+
+@media screen and (max-width: 767px) {
+    #navbar .navbar-nav li iframe {
+        display: none;
+    }
+
+    .form-inline {
+        margin-bottom: 3px;
+    }
+}
+
+.mast-head {
+    margin: 10px 0;
+}
+.mast-head h1 {
+    margin-bottom: 15px;
+}
+.mast-head p {
+
+}
+
+.mast-links {
+    padding-top: 10px;
+}
+
+.mast-links > * {
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.mast-links > .btn {
+    margin-right: 30px;
+}
+
+.clear {
+    clear: both;
+    display: inline-block;
+}
+
+.mc-field-group {
+    display: inline-block;
+}
+
+main {
+    margin: 10px 20px;
+}
+main .container {
+    margin-bottom: 40px;
+}
+
+code.hljs {
+    border: 1px solid #ccc;
+    padding: 1em;
+    white-space: pre;
+    margin-bottom: 10px;
+}
+
+.example {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 1em 1em 0.5em 1em;
+    border-radius: 4px 4px 0 0;
+}
+
+.example:after {
+    content: "Example";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    color: #9da0a4;
+    border-radius: 0px 4px 0px 4px;
+    border-width: 0px 0px 1px 1px;
+}
+
+.example + code.hljs {
+    border-top: 0;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.example > * {
+    margin-bottom: 10px;
+}
+
+.example > div.toggle {
+    margin-right: 10px;
+}
+
+.table-striped code {
+    background-color: inherit;
+}
+
+
+/* Flat slider */
+
+[class*=flat-slider].ui-slider {
+    background: #e8e2d3;
+    border: none;
+    border-radius: 0
+}
+
+[class*=flat-slider].ui-slider .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50% 50% 0;
+    border-color: transparent;
+    transition: border .4s ease
+}
+
+[class*=flat-slider].ui-slider .ui-slider-pip .ui-slider-line {
+    background: #e8e2d3;
+    transition: all .4s ease
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal {
+    height: 6px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal .ui-slider-handle {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    top: -25px;
+    margin-left: -10px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal .ui-slider-pip {
+    top: 10px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal .ui-slider-pip .ui-slider-line {
+    width: 2px;
+    height: 10px;
+    margin-left: -1px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line {
+    height: 20px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-horizontal .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+    height: 12px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical {
+    width: 6px;
+    height: 125px;
+    display: inline-block;
+    margin: 0 15%
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-handle {
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+    left: -25px;
+    margin-bottom: -10px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-pip {
+    left: 10px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-pip .ui-slider-line {
+    height: 2px;
+    width: 10px;
+    margin-top: -1px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line {
+    width: 20px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+    width: 12px
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-handle .ui-slider-tip,
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-handle[class*=ui-state-] .ui-slider-tip {
+    visibility: visible;
+    opacity: 1;
+    border: none;
+    background: 0 0;
+    left: 50%;
+    width: 30px;
+    margin-left: -15px;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    top: 10px;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg)
+}
+
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-handle .ui-slider-tip:before,
+[class*=flat-slider].ui-slider.ui-slider-vertical .ui-slider-handle[class*=ui-state-] .ui-slider-tip:before {
+    display: none
+}
+
+.flat-slider-vertical-bad .ui-slider-handle, #flat-slider-vertical-1 .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line,
+.flat-slider-vertical-bad .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
+.flat-slider-vertical-bad  .ui-slider-range {
+    background-color: #c9302c
+}
+
+.flat-slider-vertical-likely .ui-slider-handle, #flat-slider-vertical-2 .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line,
+.flat-slider-vertical-likely .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
+.flat-slider-vertical-likely .ui-slider-range {
+    background-color: #337ab7
+}
+
+.flat-slider-vertical-good .ui-slider-handle, #flat-slider-vertical-3 .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line,
+.flat-slider-vertical-good .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
+.flat-slider-vertical-good .ui-slider-range {
+    background-color: #5cb85c
+}
