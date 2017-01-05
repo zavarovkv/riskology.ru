@@ -49,9 +49,9 @@ input[type="text"] {
 }
 
 .social {
-    background-color: rgb(255, 230, 148);
+    background-color: #ffffff;
     color: #333;
-    padding: 5px;
+    padding: 5px 0 20px 0;
 }
 
 .input-subscribe {
@@ -76,6 +76,11 @@ input[type="text"] {
     display: inline-block;
     width: 700px;
     height: 400px;
+}
+
+.light_text {
+    background-color: rgb(255, 230, 148);
+    padding: 5px;
 }
 
 @media screen and (max-width: 767px) {
@@ -172,6 +177,44 @@ code.hljs {
 .table-striped code {
     background-color: inherit;
 }
+
+
+
+/* Social bittons */
+
+.social-likes__widget {
+    border: none !important;
+    background-color: rgba(231, 231, 231, .8);
+}
+
+.social-likes__widget_vkontakte:hover,
+.social-likes__widget_vkontakte:active,
+.social-likes__widget_vkontakte:focus {
+    background: rgba(82, 110, 143, .6);
+    border-color: rgba(82, 110, 143, .6);
+}
+
+.social-likes__widget_mailru:hover,
+.social-likes__widget_mailru:active,
+.social-likes__widget_mailru:focus {
+    background: rgba(37, 88, 150, .6);
+    border-color: rgba(37, 88, 150, .6);
+}
+
+.social-likes__widget_twitter:hover,
+.social-likes__widget_twitter:active,
+.social-likes__widget_twitter:focus {
+    background: rgba(0, 183, 236, .6);
+    border-color: rgba(0, 183, 236, .6);
+}
+
+.social-likes__widget_facebook:hover,
+.social-likes__widget_facebook:active,
+.social-likes__widget_facebook:focus {
+    background: rgba(66, 84, 151, .6);
+    border-color: rgba(66, 84, 151, .6);
+}
+
 
 
 /* Flat slider */

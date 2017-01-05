@@ -289,11 +289,11 @@ function showFullAnswer(answer_str, h_data, p_data) {
 
 function getAnswerFullHtml(prob_0_start, prob_0_end, prob_50_start, prob_50_end, prob_75) {
 
-    var result = "<p>Существует некоторая ненулевая вероятность завершения проекта в период между " +
-                     prob_0_start + " и " + prob_0_end + ".</p>" +
-                     "<p>Значительно вероятнее, однако, что вы будете готовы между " +
-                     prob_50_start + " и " + prob_50_end + ".</p>" +
-                     "<p>С 75%-ной достоверностью можно назначить сроком сдачи " + prob_75 + "</p>";
+    var result = "<p>Существует некоторая <b>ненулевая вероятность</b> завершения проекта в период между " +
+                     "<span class='light_text'>" + prob_0_start + "</span> и <span class='light_text'>" + prob_0_end + "</span>.</p>" +
+                     "<p><b>Значительно вероятнее</b>, однако, что вы будете готовы между " +
+                     "<span class='light_text'>" + prob_50_start + "</span> и <span class='light_text'>" + prob_50_end + "</span>.</p>" +
+                     "<p>С <b>75%-ной достоверностью</b> можно назначить сроком сдачи <span class='light_text'>" + prob_75 + "</span></p>";
 
     return result;
 }
