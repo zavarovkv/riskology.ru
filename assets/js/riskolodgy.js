@@ -1,3 +1,5 @@
+const ITER_COUNT = 10000;
+
 /******************************************************************
     RiskFactor class
 ******************************************************************/
@@ -6,7 +8,6 @@ var RiskFactor = function(max, normal, min) {
     this.max = 1 + max;
     this.normal = 1 + normal;
     this.min = 1 + min;
-    this.iter_count = 20000;
 
     this.lt = this.normal - this.min;
     this.rt = this.max - this.normal;
@@ -27,13 +28,13 @@ var RiskFactor = function(max, normal, min) {
 RiskFactor.prototype.generate = function() {
 
     if(this.max == this.min == this.normal == 1) {
-        for (var i = 0; i < this.iter_count; i++) {
+        for (var i = 0; i < ITER_COUNT ; i++) {
             this.v[i] = 1;
         }
 
     } else {
 
-        for (var i = 0; i < this.iter_count; i++) {
+        for (var i = 0; i < ITER_COUNT ; i++) {
 
             this.r[i] = Math.random(); //(i + 1) / 100;
 
@@ -68,9 +69,9 @@ RiskFactor.prototype.generate = function() {
 };
 
 RiskFactor.prototype.generateEmpty = function() {
-    console.log(this.iter_count);
+    console.log(ITER_COUNT );
 
-    for (var i = 0; i < this.iter_count; i++) {
+    for (var i = 0; i < ITER_COUNT ; i++) {
         this.v[i] = 1;
     }
 }
@@ -258,5 +259,10 @@ Riskology.prototype.getResult = function() {
 // Return count of actual risks
 Riskology.prototype.getRiskCount = function() {
     return this.risk_factors.length;
+};
+
+// Return count of iterations
+Riskology.prototype.getIterCount = function() {
+    return this.getIterCount()
 };
 

@@ -29,7 +29,8 @@ input[type="text"] {
 }
 
 .risk-container {
-    background-color: rgb(255, 230, 148);
+    background-color: #faf4ed;
+    border: 1px solid #f1ebe3;
     padding: 5px 20px;
     margin-bottom: 20px;
 }
@@ -47,7 +48,7 @@ input[type="text"] {
     padding: 20px 5px;
 }
 
-.subscribe {
+.social {
     background-color: rgb(255, 230, 148);
     color: #333;
     padding: 5px;
@@ -71,7 +72,7 @@ input[type="text"] {
     display: none;
 }
 
-#chart_div {
+#chart_div, #chart_v_div {
     display: inline-block;
     width: 700px;
     height: 400px;
