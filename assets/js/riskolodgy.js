@@ -229,17 +229,17 @@ Riskology.prototype.calculate = function() {
     this.prj_dif_during = this.prj_max_during - this.prj_min_during;
 
     // Output temporary results
-    console.log('Nano duration: ' + this.prj_nano_during);
-    console.log('Min duration: ' + this.prj_min_during);
-    console.log('Max duration: ' + this.prj_max_during);
+    // console.log('Nano duration: ' + this.prj_nano_during);
+    // console.log('Min duration: ' + this.prj_min_during);
+    // console.log('Max duration: ' + this.prj_max_during);
 
     // Calculate groups values
     this.groups = this.calculateGroups();
 
-    console.log('Steps: ' + this.groups);
+    // console.log('Steps: ' + this.groups);
 
     this.scale_days = this.calculateScaleDays();
-    console.log('Scale in days: ' + this.scale_days);
+    // console.log('Scale in days: ' + this.scale_days);
 
     // Calculate Risk Matrix
     this.risk_matrix = this.calculateRiskMatrix();
@@ -247,7 +247,7 @@ Riskology.prototype.calculate = function() {
 
     // Calculate sum
     this.risk_matrix_sum = this.calculateSumOfRiskMatrix();
-    console.log('Risk Matrix Sum: ' + this.risk_matrix_sum);
+    // console.log('Risk Matrix Sum: ' + this.risk_matrix_sum);
 
 };
 
