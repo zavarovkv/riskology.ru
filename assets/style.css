@@ -7,7 +7,6 @@ footer {
     color: white;
     background-color: #4A4A4A;
     text-align: center;
-    margin-top: 30px;
 }
 
 body {
@@ -26,6 +25,10 @@ input[type="text"] {
 
 .container-footer {
     padding: 20px;
+}
+
+.container-social {
+    padding: 20px 20px 0 20px;
 }
 
 .risk-container {
@@ -51,7 +54,7 @@ input[type="text"] {
 .social {
     background-color: #ffffff;
     color: #333;
-    padding: 5px 0 20px 0;
+    padding: 5px 0 15px 0;
 }
 
 .input-subscribe {
@@ -74,14 +77,28 @@ input[type="text"] {
 
 #chart_div, #chart_v_div {
     display: inline-block;
-    width: 700px;
-    height: 400px;
+    /*width: 700px;*/
+    /*height: 400px;*/
 }
 
 .light_text {
     background-color: rgb(255, 230, 148);
     padding: 5px;
+    white-space: nowrap;
 }
+
+.prob_0 {
+    font-weight: bold;
+}
+
+.prob_50 {
+    font-weight: bold;
+}
+
+.prob_75 {
+    font-weight: bold;
+}
+
 
 @media screen and (max-width: 767px) {
     #navbar .navbar-nav li iframe {
@@ -337,4 +354,19 @@ code.hljs {
 .flat-slider-vertical-good .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
 .flat-slider-vertical-good .ui-slider-range {
     background-color: #5cb85c
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

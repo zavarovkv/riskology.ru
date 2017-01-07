@@ -1,3 +1,29 @@
+var script_loaded = false;
+function loadScript(src, callback) {
+    var s, r, t;
+    r = false;
+    s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    s.onload = s.onreadystatechange = function() {
+        //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+        if ( !r && (!this.readyState || this.readyState == 'complete') ) {
+            r = true;
+            callback();
+        }
+    };
+    t = document.getElementsByTagName('script')[0];
+    t.parentNode.insertBefore(s, t);
+}
+
+loadScript('https://www.gstatic.com/charts/loader.js', function () {
+    google.charts.load('current', {'packages': ['bar', 'corechart'], callback: function () {
+        script_loaded = true;
+    }});
+});
+
+
+
 /******************************************************************
  Events
  ******************************************************************/
@@ -31,6 +57,7 @@ $(document).ready(
             }
         );
 
+
         $(".flat-slider-vertical-bad, .flat-slider-vertical-good, .flat-slider-vertical-likely")
             .slider({
                 max: 100,
@@ -45,20 +72,93 @@ $(document).ready(
             })
             .slider("float");
 
-        $(".flat-slider-vertical-bad")
+        // Start sliders value for risk #1
+        $("#slider-risk1-bad")
             .slider({
-                value: 50,
+                value: 55
+            });
+        $("#slider-risk1-likely")
+            .slider({
+                value: 5
+            });
+        $("#slider-risk1-good")
+            .slider({
+                value: 0
             });
 
-        $(".flat-slider-vertical-likely")
+        // Start sliders value for risk #2
+        $("#slider-risk2-bad")
             .slider({
-                value: 20,
+                value: 16,
+            });
+        $("#slider-risk2-likely")
+            .slider({
+                value: 5,
+            });
+        $("#slider-risk2-good")
+            .slider({
+                value: 0,
             });
 
-        $(".flat-slider-vertical-good")
+        // Start sliders value for risk #3
+        $("#slider-risk3-bad")
             .slider({
-                value: 00,
+                value: 8,
             });
+        $("#slider-risk3-likely")
+            .slider({
+                value: 4,
+            });
+        $("#slider-risk3-good")
+            .slider({
+                value: 0,
+            });
+
+
+        $('.ui-slider-vertical').slider({
+            slide: function (event, ui) {
+                changeConnectedSliders(ui);
+            }
+        });
+        
+        function takeValue(class_name) {
+            return $('#' + class_name + ' span.ui-slider-tip').text();
+        }
+
+        function changeValue(class_name, value) {
+            $("#" + class_name)
+                .slider({
+                    value: value
+                });
+        }
+
+        // < - less, > - more
+        function changeConnectedSliders(ui) {
+            var mapping = {
+                'bad':      [['likely', 'less'], ['good', 'less']],
+                'likely':   [['bad', 'more'], ['good', 'less']],
+                'good':     [['likely', 'more'], ['bad', 'more']]
+            }
+
+            var id = $(ui.handle)[0].parentElement.id;
+            var id_arr = id.split('-');
+
+            $.each(mapping[id_arr[2]], function (index, value) {
+                var prev_value = takeValue('slider-' + id_arr[1] + '-' + value[0]);
+
+                if (value[1] == 'less') {
+                    if (ui.value < prev_value) {
+                        changeValue('slider-' + id_arr[1] + '-' + value[0], ui.value);
+                    }
+                } else {
+                    if (ui.value > prev_value) {
+                        changeValue('slider-' + id_arr[1] + '-' + value[0], ui.value);
+                    }
+                }
+            });
+        }
+
+
 
         $("input[type='checkbox']").change(function () {
             if ($(this).is(':checked')) {
@@ -75,9 +175,6 @@ $(document).ready(
         $("#mc-embedded-subscribe").click(function () {
             $("#mc_embed_signup").hide();
         });
-
-        google.charts.load('current', {'packages': ['bar']});
-        google.charts.load('current', {'packages':['corechart']});
     }
 );
 
@@ -94,6 +191,8 @@ $(document).ready(
 //
 function calculateRisks() {
 
+    $('.chart-container').hide();
+
     // Get range od dates
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 
@@ -102,15 +201,14 @@ function calculateRisks() {
     var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
 
     // Calculate count of bars fro histogram
-    if (diffDays < 8) {
+    if (diffDays < 15) {
 
-        var answer_html = "<p>Simple answer</p>";
+        var answer_html = "<p>Если длительность проекта меньше 2х недели</p>";
         showSimpleAnswer(answer_html);
 
     } else {
 
-        var s_count = Math.round(diffDays / 3);
-        var riskology = new Riskology(diffDays, s_count);
+        var riskology = new Riskology(diffDays);
 
         for (var i = 0; i < $('.toggle input[type="checkbox"]').length; i++) {
 
@@ -143,7 +241,7 @@ function createAnswer(riskology) {
     // If user didn't add risks
     if (riskology.getRiskCount() == 0) {
 
-        showSimpleAnswer(getAnswerWithouRisksHtml('дата'));
+        showSimpleAnswer(getAnswerWithouRisksHtml('текст если пользователь не выбрал риски'));
 
     } else {
 
@@ -152,8 +250,9 @@ function createAnswer(riskology) {
         // Create data for histograms
         var histogram_data = getHistogramData(risk_result);
         var probably_data = getProbablyData(histogram_data);
+        var p_data = getProbablyResult(probably_data);
 
-        showFullAnswer(getAnswerFullHtml(0, 0, 0, 0, 0), histogram_data, probably_data);
+        showFullAnswer(getAnswerFullHtml(p_data[0], p_data[1], p_data[2], p_data[3], p_data[4]), histogram_data, probably_data);
     }
 }
 
@@ -210,6 +309,42 @@ function getProbablyData(histogram_data) {
 
 
 //
+// Calculate and get 0 probability, 0.5 probability and 0.75 probability intervals
+//
+function getProbablyResult(p_data) {
+    var p_0_start = 0;
+    var p_0_end = 0;
+    var p_50_start = 0;
+    var p_50_end = 0;
+    var p_75 = 0;
+
+    for (var i = 0; i < p_data.length; i++) {
+
+        // Find 0.1 probability
+        if (p_data[i][1] > 0 && p_data[i-1][1] == 0) {
+            p_0_start = p_data[i][0].toString();
+            p_0_end = p_data[i + 1][0].toString();
+        }
+
+        // Find 0.5 probability
+        if (p_data[i][1] >= 50 && p_data[i-1][1] <= 50) {
+            p_50_start = p_data[i - 1][0].toString();
+            p_50_end = p_data[i][0].toString();
+        }
+
+        // Find 0.75 probability
+        if (p_data[i][1] >= 75 && p_data[i-1][1] <= 75) {
+            p_75 = p_data[i][0].toString();
+        }
+
+    }
+
+    return [p_0_start, p_0_end, p_50_start, p_50_end, p_75];
+}
+
+
+
+//
 // Draw Bar histogram
 //
 function drawHistogram(h_data) {
@@ -223,6 +358,7 @@ function drawHistogram(h_data) {
 
     var options = {
         width: width,
+        height: 400,
         legend: {position: 'none'},
         bar: {groupWidth: "100%"}
     };
@@ -247,6 +383,7 @@ function drawProbablyHistogram(p_data) {
 
     var options = {
         width: width,
+        height: 400,
         curveType: 'function',
         legend: { position: 'none' }
     };
@@ -274,11 +411,37 @@ function showSimpleAnswer(answer_str) {
 function showFullAnswer(answer_str, h_data, p_data) {
 
     $('.result_text').html(answer_str);
-    $('.chart-container').show();
     $('.result-container').show();
 
-    drawHistogram(h_data);
-    drawProbablyHistogram(p_data);
+    $('.chart-container').show();
+
+    var counter = 0;
+    if (script_loaded === true) {
+        drawHistogram(h_data);
+        drawProbablyHistogram(p_data);
+    } else {
+        //show loader
+        $('.chart-container').prepend('<div class="loader"></div>');
+
+
+        var refreshIntervalId = setInterval(function() {
+            if (script_loaded === true) {
+                drawHistogram(h_data);
+                drawProbablyHistogram(p_data);
+
+                clearInterval(refreshIntervalId);
+                $('.loader').hide();
+                //hide loader
+            } else {
+                if (counter == 19) {
+                    clearInterval(refreshIntervalId);
+                    //show message about mistake
+                    $('.loader').hide();
+                }
+                counter++;
+            }
+        }, 1000);
+    }
 }
 
 
@@ -289,11 +452,23 @@ function showFullAnswer(answer_str, h_data, p_data) {
 
 function getAnswerFullHtml(prob_0_start, prob_0_end, prob_50_start, prob_50_end, prob_75) {
 
-    var result = "<p>Существует некоторая <b>ненулевая вероятность</b> завершения проекта в период между " +
-                     "<span class='light_text'>" + prob_0_start + "</span> и <span class='light_text'>" + prob_0_end + "</span>.</p>" +
-                     "<p><b>Значительно вероятнее</b>, однако, что вы будете готовы между " +
-                     "<span class='light_text'>" + prob_50_start + "</span> и <span class='light_text'>" + prob_50_end + "</span>.</p>" +
-                     "<p>С <b>75%-ной достоверностью</b> можно назначить сроком сдачи <span class='light_text'>" + prob_75 + "</span></p>";
+    var result = "<p>Существует некоторая <span class='prob_0'>ненулевая вероятность</span> завершения проекта ";
+
+    if (prob_0_start != prob_0_end) {
+        result +=  "в период между <span class='light_text'>" + prob_0_start + "</span> и <span class='light_text'>" + prob_0_end + "</span></p>";
+    } else {
+        result +=  "<span class='light_text'>" + prob_0_end + "</span></p>";
+    }
+
+    result += "<p><span class='prob_50'>Значительно вероятнее</span>, однако, что вы будете готовы ";
+
+    if (prob_50_start != prob_50_end) {
+        result += "между <span class='light_text'>" + prob_50_start + "</span> и <span class='light_text'>" + prob_50_end + "</span></p>";
+    } else {
+        result +=  "<span class='light_text'>" + prob_50_end + "</span></p>";
+    }
+
+    result += "<p>С <span class='prob_75'>75%-ной достоверностью</span> можно назначить сроком сдачи <span class='light_text'>" + prob_75 + "</span></p>";
 
     return result;
 }

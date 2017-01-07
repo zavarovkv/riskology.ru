@@ -256,7 +256,7 @@
 .ui-slider-vertical.ui-slider-float .ui-slider-tip:after,
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
   border: 5px solid rgba(255, 255, 255, 0);
-  border-left-color: rgb(255, 230, 148);
+  border-left-color: #faf4ed;
   border-top-color: transparent;
   position: absolute;
   bottom: 50%;

@@ -1,4 +1,4 @@
-const ITER_COUNT = 10000;
+const ITER_COUNT = 50000;
 
 /******************************************************************
     RiskFactor class
@@ -69,8 +69,6 @@ RiskFactor.prototype.generate = function() {
 };
 
 RiskFactor.prototype.generateEmpty = function() {
-    console.log(ITER_COUNT );
-
     for (var i = 0; i < ITER_COUNT ; i++) {
         this.v[i] = 1;
     }
@@ -84,7 +82,7 @@ RiskFactor.prototype.generateEmpty = function() {
  Riskology class
  ******************************************************************/
 
-var Riskology = function (prj_nano_during, cnt_groups) {
+var Riskology = function (prj_nano_during) {
     this.risk_factors = [];
     this.delay_factor = [];
     this.equal_delay_factor = [];
@@ -99,7 +97,7 @@ var Riskology = function (prj_nano_during, cnt_groups) {
     this.prj_dif_during = 0;
 
     // Count of groups for histogram
-    this.cnt_groups = cnt_groups;
+    this.cnt_groups = 1;
     this.groups = [];
     this.risk_matrix = [];
     this.risk_matrix_sum = [];
@@ -117,6 +115,18 @@ Riskology.prototype.addRisk = function(risk) {
 
 // Calculate steps
 Riskology.prototype.calculateGroups = function() {
+
+    // Calculate count of groups for separate data range
+    var r_diff = Math.round(this.prj_dif_during);
+
+    if (r_diff  < 10) {
+        this.cnt_groups = r_diff;
+    } else if (r_diff  < 60) {
+        this.cnt_groups = Math.round(r_diff / 3);
+    } else if (r_diff  < 100) {
+        this.cnt_groups = Math.round(r_diff / 4);
+    } else this.cnt_groups = 30;
+
     var result = [];
     var diff_value = this.prj_dif_during / (this.cnt_groups - 1);
 
@@ -218,13 +228,14 @@ Riskology.prototype.calculate = function() {
     this.prj_min_during = Math.min.apply(null, this.delay_during);
     this.prj_dif_during = this.prj_max_during - this.prj_min_during;
 
-    // Calculate groups values
-    this.groups = this.calculateGroups();
-
     // Output temporary results
     console.log('Nano duration: ' + this.prj_nano_during);
     console.log('Min duration: ' + this.prj_min_during);
     console.log('Max duration: ' + this.prj_max_during);
+
+    // Calculate groups values
+    this.groups = this.calculateGroups();
+
     console.log('Steps: ' + this.groups);
 
     this.scale_days = this.calculateScaleDays();
@@ -252,7 +263,6 @@ Riskology.prototype.getResult = function() {
         result[i][1] = this.risk_matrix_sum[i];
     }
 
-    //console.log('VizualData #1: ' + result[0]);
     return result;
 };
 
