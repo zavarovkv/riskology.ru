@@ -56,189 +56,197 @@
             </div>
         </div>
     </header>
-
-    <div class="container">
-        <h2>Как использовать?</h2>
-        <p><b>Цель этого инструмента</b> - продемонстрировать влияние неуправляемых рисков проекта на его длительность. Учитываются 5 ключевых рисков из-за которых, по статистике,
-        происходит большинство расхождений между планом проекта и реальностью. Главная особенность этих рисков - они повторяются от проекта к проекту, но слепо игнорируются многими менеджерами.
-        </p>
-        <p>Методика рачетов и объяснения построены на основе информации из книги «Вальсируя с Медведями» Тома ДеМарко и Тимоти Листера.
-        Это одна из лучших книг по управлению рисками. Советую ее прочитать.</p>
-        <p>Для расчетов используется моделирование методом Монте-Карло 50 000 прогонов проекта с заданными датами и настойками рисков. При моделировании используются данные полученные
-        авторами книги опытным путем на большом количестве проектов, крайне советую поиграть с ними, чтобы глубже понять влияние рисков на изменнеие вероятной даты завершения проекта.</p>
-        <p>Выполните каждый описанный Шаг и на выходе получите наиболее вероятные сроки завершения вашего проекта.</p>
-    </div> <!-- /container -->
-    <div class="container">
-        <h2>Шаг 1 - Спрогнозируйте сроки</h2>
-        <p>работы всего пять. Мы выбрали именно эту пятерку, поскольку именно из-за них происходит большинство расхождений между планом и реальностью, а также потому, что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-
-        <div class="form-group col-lg-5 col-centered">
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </div>
-                <input type="text" class="form-control btn-secondary" name="input_deadline"/>
-            </div>
-        </div>
-    </div> <!-- /container -->
-    <div class="container">
-        <h2>Шаг 2 - Установите факторы риска</h2>
-        <p>Возможно, вы могли бы составить список из 20 или 30 проблем, которые столь вездесущи, что разумно ждать их появления, по крайней мере, в некоторой степени, в каждом проекте. Мы выбрали для работы всего пять. Мы выбрали именно эту пятерку, поскольку именно из-за них происходит большинство расхождений между планом и реальностью, а также потому, что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-        <div class="col-lg-5 col-centered">
-            <div class="checkbox">
-                <label>
-                    <input id="risk-1" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    Риск #1. Ошибки календарного планирования
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input id="risk-2" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    Риск #2. Изменение требований
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input id="risk-3" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    Риск #3. Текучесть кадров
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input id="risk-4" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    Риск #4. Нарушение спецификаций
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input id="risk-5" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    Риск #5. Низкая производительность
-                </label>
-            </div>
-        </div>
-    </div> <!-- /container -->
-    <div class="container">
-        <h2>Шаг 3 - Оцените риски</h2>
-        <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-        <div class="risk-container risk-1">
-            <h3>Риск #1. Ошибки календарного планирования</h3>
-            <p>
-                Более 50% причин провалов проектов связаны с ошибками планирования, и одна из распостраненых ошибок планирования -
-                отсутсвие анализа рисков.
-
-                Ошибка календарного планирования – не только реальный риск, но и самый крупный из пяти главных рисков по степени
-                влияния на расхождение плана проекта и реального исполнения.
-
-                Вы чаще упускаете какие-то работы, которые оказываются нужными, чем включаете в расписание работы, которые
-                впоследствии окажутся ненужными. Любая переоценка размера работ, оказавшаяся в вашем плане, редко оказывается
-                достаточной, чтобы компенсировать недооценку.
-
-                Мы утверждали выше, что большинство главных рисков не относятся к низкой производительности команды. Это справедливо
-                относительно риска ошибки календарного планирования, но только если игнорировать качество работы менеджмента.
-                Руководители, предложившие или согласившиеся взять обязательства с серьезными ошибками календарного планирования,
-                работают плохо. Ключевой момент здесь состоит в том, что когда проект не укладывается в график, то это происходит
-                несмотря на работу разработчиков, а не благодаря ей. Команда, отдельно от руководителя, могла работать оптимально.
-            </p>
-            <div class="vertical col-lg-4 col-centered">
-                <div class="flat-slider-vertical-bad" id="slider-risk1-bad"></div>
-                <div class="flat-slider-vertical-likely" id="slider-risk1-likely"></div>
-                <div class="flat-slider-vertical-good" id="slider-risk1-good"></div>
-            </div>
-        </div>
-        <div class="risk-container risk-2">
-            <h3>Риск #2. Изменение требований</h3>
-            <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-            <div class="vertical col-lg-4 col-centered">
-                <div class="flat-slider-vertical-bad" id="slider-risk2-bad"></div>
-                <div class="flat-slider-vertical-likely" id="slider-risk2-likely"></div>
-                <div class="flat-slider-vertical-good" id="slider-risk2-good"></div>
-            </div>
-        </div>
-        <div class="risk-container risk-3">
-            <h3>Риск #3. Текучесть кадров</h3>
-            <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-            <div class="vertical col-lg-4 col-centered">
-                <div class="flat-slider-vertical-bad" id="slider-risk3-bad"></div>
-                <div class="flat-slider-vertical-likely" id="slider-risk3-likely"></div>
-                <div class="flat-slider-vertical-good" id="slider-risk3-good"></div>
-            </div>
-        </div>
-        <div class="risk-container risk-4">
-            <h3>Риск #4. Нарушение спецификаций</h3>
-            <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-            <div class="vertical col-lg-4 col-centered">
-                <div class="flat-slider-vertical-bad" id="slider-risk4-bad"></div>
-                <div class="flat-slider-vertical-likely" id="slider-risk4-likely"></div>
-                <div class="flat-slider-vertical-good" id="slider-risk4-good"></div>
-            </div>
-        </div>
-        <div class="risk-container risk-5">
-            <h3>Риск #5. Низкая производительность</h3>
-            <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
-            <div class="vertical col-lg-4 col-centered">
-                <div class="flat-slider-vertical-bad" id="slider-risk5-bad"></div>
-                <div class="flat-slider-vertical-likely" id="slider-risk5-likely"></div>
-                <div class="flat-slider-vertical-good" id="slider-risk5-good"></div>
-            </div>
-        </div>
-    </div> <!-- /container -->
-    <div class="container">
-        <div class="col-sm-offset-5 col-sm-2 text-center">
-            <a href="#result" class="btn btn-lg btn-success" id="btn_run"><span class="glyphicon glyphicon-ok-circle"></span> Оценить</a>
-        </div>
-    </div> <!-- /container -->
-
-    <div class="result-container" id="result">
+    <div class="wrapper">
         <div class="container">
-            <h2>Шаг 4 - Сделайте выводы</h2>
-            <div class="result_text"></div>
-        </div>
-        <div class="container chart-container">
-            <div class="chart">
-                <div id="chart_div"></div>
-            </div>
-            <div class="chart">
-                <div id="chart_v_div"></div>
-            </div>
-        </div>
-    </div> <!-- /result-container -->
+            <h2>Что это, Бэрримор?</h2>
+            <p>Это инструмент для демонстрации влияния рисков проекта на сроки его завершения. Учитываются 5 неуправляемых рисков из-за которых происходит большинство расхождений между планом проекта и реальностью. Главная особенность этих рисков - повторяемость от проекта к проекту и игнорирование менеджерами.</p>
+        </div> <!-- /container -->
+        <div class="container container-desc">
+            <h3>Как работает</h3>
+            <p>Математическая модель расчетов описана Томом Де Марко и Тимоти Листером в книге «Вальсируя с Медведями», заслужившей признания мирового сообщества руководителей проектов. <a href="https://bookmate.com/books/XLQ15dk9">Читать на bookmate.</a></p>
+            <p>В расчетах применяется моделирование методом Монте-Карло с N = 50 000. При моделировании используются коэффициенты полученные авторами книги опытным путем, крайне советую поиграть с ними, для понимания влияние рисков на изменнеие вероятной даты завершения проекта.</p>
+            <h3>Ограничения</h3>
+            <p>Этот инструмент предназначен НЕ для оценки длительности и стоимости проекта, а для определения необходимого запаса времени на преодоление влияния описанных рисков. Кроме того, для определения оптимистичной даты завершения проекта придется воспользоваться оптом и знанием в проектном управлении. </p>
+            <h3>Как пользоваться</h3>
+            <p>Выполните каждый шаг и на получите наиболее вероятные сроки завершения вашего проекта.</p>
+        </div> <!-- /container -->
+        <div class="container">
+            <h2>Шаг 1 - Спрогнозируйте сроки</h2>
+            <p>
+                Первый шаг по оценке состоит в определении даты завершения проекта, предположив, что рисков не существует и вы самый везучий человек на свеете.
+                Сделать первый подход к оценке расписания, исходя из предположения, что ни один из рисков не материализуется. Другими словами, ваш первый шаг
+                по оценке состоит в определении «даты с вероятностью нанопроцента», то есть самой ранней из дат, к которой вы можете успеть завершить проект.
+            </p>
+            <p>Сделайте это.</p>
 
-    <div class="container container-social text-center">
-        <div class="social">
-            <div class="social-likes">
-                <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Поделиться</div>
-                <div class="twitter" title="Поделиться ссылкой в Твиттере">Твитнуть</div>
-                <div class="mailru" title="Поделиться ссылкой в Моём мире">Поделиться</div>
-                <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Поделиться</div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <!-- mailChimp embed form -->
-        <!-- not now :) -->
-        <!-- <div id="mc_embed_signup" class="subscribe">
-            <form action="https://zavarov.us12.list-manage.com/subscribe/post?u=16d67231f289b5b5b49bdd778&amp;id=3651e63bf2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll" class="form-group">
-                    <div class="mc-field-group">
-                        <label for="mce-EMAIL">Ежемесячная рассылка по Управлению проектами&nbsp</label>
-                        <input type="email" value="" name="EMAIL" class="required email form-control input-subscribe" id="mce-EMAIL" placeholder="ваша@электронная.почта">
+            <div class="form-group col-lg-5 col-centered">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
                     </div>
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_16d67231f289b5b5b49bdd778_3651e63bf2" tabindex="-1" value=""></div>
-                    <input type="submit" value="Подписаться" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                    <input type="text" class="form-control btn-secondary" name="input_deadline"/>
                 </div>
-            </form>
-        </div> -->
-        <!-- /mailChimp embed form -->
+            </div>
+        </div> <!-- /container -->
+        <div class="container">
+            <h2>Шаг 2 - Установите факторы риска</h2>
+            <p>Возможно, вы могли бы составить список из 20 или 30 проблем, которые столь вездесущи, что разумно ждать их появления, по крайней мере, в некоторой степени, в каждом проекте. Мы выбрали для работы всего пять. Мы выбрали именно эту пятерку, поскольку именно из-за них происходит большинство расхождений между планом и реальностью, а также потому, что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+            <div class="col-lg-5 col-centered">
+                <div class="checkbox">
+                    <label>
+                        <input id="risk-1" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        Риск #1. Ошибки календарного планирования
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="risk-2" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        Риск #2. Изменение требований
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="risk-3" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        Риск #3. Текучесть кадров
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="risk-4" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        Риск #4. Нарушение спецификаций
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="risk-5" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        Риск #5. Низкая производительность
+                    </label>
+                </div>
+            </div>
+        </div> <!-- /container -->
+        <div class="container">
+            <h2>Шаг 3 - Оцените риски</h2>
+            <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+            <div class="risk-container risk-1">
+                <h3>Риск #1. Ошибки календарного планирования</h3>
+                <p>
+                    Более 50% причин провалов проектов связаны с ошибками планирования, и одна из распостраненых ошибок планирования -
+                    отсутсвие анализа рисков.
 
-        <div class="container-footer">
-            <p>&copy; Заваров Константин, 2017</p>
+                    Ошибка календарного планирования – не только реальный риск, но и самый крупный из пяти главных рисков по степени
+                    влияния на расхождение плана проекта и реального исполнения.
+
+                    Вы чаще упускаете какие-то работы, которые оказываются нужными, чем включаете в расписание работы, которые
+                    впоследствии окажутся ненужными. Любая переоценка размера работ, оказавшаяся в вашем плане, редко оказывается
+                    достаточной, чтобы компенсировать недооценку.
+
+                    Мы утверждали выше, что большинство главных рисков не относятся к низкой производительности команды. Это справедливо
+                    относительно риска ошибки календарного планирования, но только если игнорировать качество работы менеджмента.
+                    Руководители, предложившие или согласившиеся взять обязательства с серьезными ошибками календарного планирования,
+                    работают плохо. Ключевой момент здесь состоит в том, что когда проект не укладывается в график, то это происходит
+                    несмотря на работу разработчиков, а не благодаря ей. Команда, отдельно от руководителя, могла работать оптимально.
+                </p>
+                <div class="vertical col-lg-4 col-centered">
+                    <div class="flat-slider-vertical-bad" id="slider-risk1-bad"></div>
+                    <div class="flat-slider-vertical-likely" id="slider-risk1-likely"></div>
+                    <div class="flat-slider-vertical-good" id="slider-risk1-good"></div>
+                </div>
+            </div>
+            <div class="risk-container risk-2">
+                <h3>Риск #2. Изменение требований</h3>
+                <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+                <div class="vertical col-lg-4 col-centered">
+                    <div class="flat-slider-vertical-bad" id="slider-risk2-bad"></div>
+                    <div class="flat-slider-vertical-likely" id="slider-risk2-likely"></div>
+                    <div class="flat-slider-vertical-good" id="slider-risk2-good"></div>
+                </div>
+            </div>
+            <div class="risk-container risk-3">
+                <h3>Риск #3. Текучесть кадров</h3>
+                <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+                <div class="vertical col-lg-4 col-centered">
+                    <div class="flat-slider-vertical-bad" id="slider-risk3-bad"></div>
+                    <div class="flat-slider-vertical-likely" id="slider-risk3-likely"></div>
+                    <div class="flat-slider-vertical-good" id="slider-risk3-good"></div>
+                </div>
+            </div>
+            <div class="risk-container risk-4">
+                <h3>Риск #4. Нарушение спецификаций</h3>
+                <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+                <div class="vertical col-lg-4 col-centered">
+                    <div class="flat-slider-vertical-bad" id="slider-risk4-bad"></div>
+                    <div class="flat-slider-vertical-likely" id="slider-risk4-likely"></div>
+                    <div class="flat-slider-vertical-good" id="slider-risk4-good"></div>
+                </div>
+            </div>
+            <div class="risk-container risk-5">
+                <h3>Риск #5. Низкая производительность</h3>
+                <p> что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков. что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.что нам удалось собрать некоторые полезные данные по отрасли о размерах этих рисков.</p>
+                <div class="vertical col-lg-4 col-centered">
+                    <div class="flat-slider-vertical-bad" id="slider-risk5-bad"></div>
+                    <div class="flat-slider-vertical-likely" id="slider-risk5-likely"></div>
+                    <div class="flat-slider-vertical-good" id="slider-risk5-good"></div>
+                </div>
+            </div>
+        </div> <!-- /container -->
+        <div class="container">
+            <div class="col-sm-offset-5 col-sm-2 text-center">
+                <a href="#result" class="btn btn-lg btn-success" id="btn_run"><span class="glyphicon glyphicon-ok-circle"></span> Оценить</a>
+            </div>
+        </div> <!-- /container -->
+
+        <div class="result-container" id="result">
+            <div class="container">
+                <h2>Шаг 4 - Сделайте выводы</h2>
+                <div class="result_text"></div>
+            </div>
+            <div class="container chart-container">
+                <div class="chart">
+                    <div id="chart_div"></div>
+                </div>
+                <div class="chart">
+                    <div id="chart_v_div"></div>
+                </div>
+            </div>
+        </div> <!-- /result-container -->
+
+        <div class="container container-social text-center">
+            <div class="social">
+                <div class="social-likes">
+                    <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Поделиться</div>
+                    <div class="twitter" title="Поделиться ссылкой в Твиттере">Твитнуть</div>
+                    <div class="mailru" title="Поделиться ссылкой в Моём мире">Поделиться</div>
+                    <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Поделиться</div>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <footer>
+            <!-- mailChimp embed form -->
+            <!-- not now :) -->
+            <!-- <div id="mc_embed_signup" class="subscribe">
+                <form action="https://zavarov.us12.list-manage.com/subscribe/post?u=16d67231f289b5b5b49bdd778&amp;id=3651e63bf2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll" class="form-group">
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Ежемесячная рассылка по Управлению проектами&nbsp</label>
+                            <input type="email" value="" name="EMAIL" class="required email form-control input-subscribe" id="mce-EMAIL" placeholder="ваша@электронная.почта">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_16d67231f289b5b5b49bdd778_3651e63bf2" tabindex="-1" value=""></div>
+                        <input type="submit" value="Подписаться" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                    </div>
+                </form>
+            </div> -->
+            <!-- /mailChimp embed form -->
+
+            <div class="container-footer">
+                <p>&copy; Заваров Константин, 2017</p>
+            </div>
+        </footer>
+    </div>
 
     <!-- load google loader, this slow library don't use locally, fack -->
     <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->

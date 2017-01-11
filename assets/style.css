@@ -1,7 +1,8 @@
 header {
-    padding: 20px;
-    background-color: rgb(255, 230, 148);
+    padding: 70px;
     background-size: 256px 256px;
+    box-shadow: 0 -80px 156px rgba(0, 0, 0, 0.5) inset;
+    color: #ffffff;
 }
 footer {
     color: white;
@@ -11,9 +12,17 @@ footer {
 
 body {
     color: #4A4A4A;
+    font-size: 16px;
     /*
     font-family: Georgia,"Times New Roman",Times,serif;
     */
+    background-image: url('http://riskology.ru/assets/images/bground.jpeg');
+    background-attachment: fixed;
+}
+
+.wrapper {
+    background-color: #ffffff;
+    padding-top: 15px;
 }
 
 input[type="text"] {
@@ -32,6 +41,12 @@ input[type="text"] {
 
 .container-social {
     padding: 20px 20px 0 20px;
+}
+
+.container-desc {
+    background-color: #faf4ed;
+    margin-bottom: 30px;
+    padding: 10px 40px 20px 40px;
 }
 
 .risk-container {
