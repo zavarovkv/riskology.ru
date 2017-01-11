@@ -11,6 +11,9 @@ footer {
 
 body {
     color: #4A4A4A;
+    /*
+    font-family: Georgia,"Times New Roman",Times,serif;
+    */
 }
 
 input[type="text"] {
@@ -36,6 +39,12 @@ input[type="text"] {
     border: 1px solid #f1ebe3;
     padding: 5px 20px;
     margin-bottom: 20px;
+}
+
+.quote {
+    border-left: 5px solid rgb(255, 230, 148);
+    padding-left:30px !important;
+    padding-right:30px;
 }
 
 .risk-1, .risk-2, .risk-3, .risk-4, .risk-5 {
