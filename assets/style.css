@@ -1,23 +1,74 @@
+/* Fonts */
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/PragmaticaRegularCyrillic.eot');
+    src: url('fonts/PragmaticaRegularCyrillic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PragmaticaRegularCyrillic.woff') format('woff'),
+    url('fonts/PragmaticaRegularCyrillic.ttf') format('truetype'),
+    url('fonts/PragmaticaRegularCyrillic.svg#pragmatica') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PragmaticaBold';
+    src: url('fonts/PragmaticaBoldCyrillic.eot');
+    src: url('fonts/PragmaticaBoldCyrillic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PragmaticaBoldCyrillic.woff') format('woff'),
+    url('fonts/PragmaticaBoldCyrillic.ttf') format('truetype'),
+    url('fonts/PragmaticaBoldCyrillic.svg#pragmatica') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PragmaticaSemibold';
+    src: url('fonts/PragmaticaSemiboldCyrillic.eot');
+    src: url('fonts/PragmaticasemiboldCyrillic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PragmaticasemiboldCyrillic.woff') format('woff'),
+    url('fonts/PragmaticaSemiboldCyrillic.ttf') format('truetype'),
+    url('fonts/PragmaticaSemiboldCyrillic.svg#pragmatica') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
 header {
     padding: 70px;
     background-size: 256px 256px;
-    box-shadow: 0 -80px 156px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 -80px 156px rgba(0, 0, 0, 0.8) inset;
     color: #ffffff;
 }
 footer {
     color: white;
     background-color: #4A4A4A;
     text-align: center;
+    font-size: 15px;
 }
 
 body {
     color: #4A4A4A;
-    font-size: 16px;
-    /*
-    font-family: Georgia,"Times New Roman",Times,serif;
-    */
-    background-image: url('http://riskology.ru/assets/images/bground.jpeg');
+    font-family:'Pragmatica', Sans-Serif;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    background: url('http://riskology.ru/assets/images/bground.jpg') no-repeat center center fixed;
+    background-size: cover;
     background-attachment: fixed;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'PragmaticaSemibold';
+    letter-spacing: -1px;
+    font-size: 50px;
+}
+
+h2 {
+    font-family: 'PragmaticaBold';
+}
+
+h3 {
+    font-family: 'PragmaticaBold';
 }
 
 .wrapper {
@@ -52,8 +103,12 @@ input[type="text"] {
 .risk-container {
     background-color: #faf4ed;
     border: 1px solid #f1ebe3;
-    padding: 5px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding: 10px 40px 20px 40px;
+}
+
+.risk-1 {
+    margin-top: 30px;
 }
 
 .quote {
@@ -393,4 +448,8 @@ code.hljs {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.form-control {
+    font-size: 18px;
 }

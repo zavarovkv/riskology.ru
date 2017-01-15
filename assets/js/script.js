@@ -114,6 +114,34 @@ $(document).ready(
                 value: 0,
             });
 
+        // Start sliders value for risk #4
+        $("#slider-risk4-bad")
+            .slider({
+                value: 62,
+            });
+        $("#slider-risk4-likely")
+            .slider({
+                value: 15,
+            });
+        $("#slider-risk4-good")
+            .slider({
+                value: 0,
+            });
+
+        // Start sliders value for risk #5
+        $("#slider-risk5-bad")
+            .slider({
+                value: 15,
+            });
+        $("#slider-risk5-likely")
+            .slider({
+                value: 0,
+            });
+        $("#slider-risk5-good")
+            .slider({
+                value: -15,
+            });
+
 
         $('.ui-slider-vertical').slider({
             slide: function (event, ui) {
