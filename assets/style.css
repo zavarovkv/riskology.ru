@@ -72,6 +72,10 @@ h3 {
     font-family: 'PragmaticaBold';
 }
 
+h4 {
+    font-family: 'PragmaticaBold';
+}
+
 .wrapper {
     background-color: #ffffff;
     padding-top: 15px;
@@ -108,16 +112,15 @@ input[type="text"] {
     padding: 10px 40px 20px 40px;
 }
 
-.risk-1 {
-    margin-top: 30px;
-}
-
-.quote {
+.quote, .quote-req {
     border-left: 5px solid rgb(255, 230, 148);
     padding-left: 30px !important;
     padding-right: 30px;
     margin: 20px 0px;
+}
 
+.quote-req {
+    border-left: 5px solid #5CB85C;
 }
 
 .risk-1, .risk-2, .risk-3, .risk-4, .risk-5 {
