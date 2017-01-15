@@ -40,7 +40,8 @@ header {
 }
 footer {
     color: white;
-    background-color: #4A4A4A;
+    background-color: #4a4a4a;
+    font-family: CirceWebRegular,Arial,sans-serif;
     text-align: center;
     font-size: 15px;
 }
@@ -113,8 +114,10 @@ input[type="text"] {
 
 .quote {
     border-left: 5px solid rgb(255, 230, 148);
-    padding-left:30px !important;
-    padding-right:30px;
+    padding-left: 30px !important;
+    padding-right: 30px;
+    margin: 20px 0px;
+
 }
 
 .risk-1, .risk-2, .risk-3, .risk-4, .risk-5 {
@@ -146,7 +149,7 @@ input[type="text"] {
 }
 
 .chart {
-    padding-top: 20px;
+    padding-bottom: 30px;
     text-align: center;
 }
 

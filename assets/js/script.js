@@ -498,6 +498,8 @@ function getAnswerFullHtml(prob_0_start, prob_0_end, prob_50_start, prob_50_end,
 
     result += "<p>С <span class='prob_75'>75%-ной достоверностью</span> можно назначить сроком сдачи <span class='light_text'>" + prob_75 + "</span></p>";
 
+    result += "<p>asd asd asd asd asd asdaadsasd adasd </p>"
+
     return result;
 }
 
