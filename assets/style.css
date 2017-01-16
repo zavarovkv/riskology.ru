@@ -464,3 +464,23 @@ code.hljs {
 .form-control {
     font-size: 18px;
 }
+
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 25px 10px;
+    }
+    header h1 {
+        font-size: 35px;
+    }
+    .container-desc {
+        padding: 10px 15px 20px 15px;
+    }
+    .risk-container {
+        margin: 0 -15px;
+        padding: 10px 15px 20px 15px;
+    }
+    .quote, .quote-req, .quote-info {
+        padding-left: 15px !important;
+    }
+}
