@@ -35,8 +35,9 @@
 header {
     padding: 70px;
     background-size: 256px 256px;
-    box-shadow: 0 -80px 156px rgba(0, 0, 0, 0.8) inset;
-    color: #ffffff;
+    box-shadow: 0 -80px 156px rgba(0, 0, 0, 0.1) inset;
+    color: #000000;
+    background: #ffdf00;
 }
 footer {
     color: white;
@@ -52,9 +53,9 @@ body {
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
-    background: url('http://riskology.ru/assets/images/bground.jpg') no-repeat center center fixed;
+/*    background: url('http://riskology.ru/assets/images/bground.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
     width: 100%;
 }
 
@@ -112,7 +113,7 @@ input[type="text"] {
     padding: 10px 40px 20px 40px;
 }
 
-.quote, .quote-req {
+.quote, .quote-req, .quote-info {
     border-left: 5px solid rgb(255, 230, 148);
     padding-left: 30px !important;
     padding-right: 30px;
@@ -123,7 +124,11 @@ input[type="text"] {
     border-left: 5px solid #5CB85C;
 }
 
-.risk-1, .risk-2, .risk-3, .risk-4, .risk-5 {
+.quote-info {
+    border-left: 5px solid #4285F4;
+}
+
+.risk-1, .risk-2, .risk-3, .no-risk-4, .risk-5 {
     display: none;
 }
 

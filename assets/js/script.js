@@ -72,6 +72,21 @@ $(document).ready(
             })
             .slider("float");
 
+
+        $(".risk5-slider")
+            .slider({
+                max: 50,
+                min: -50,
+                range: "min",
+                orientation: "vertical",
+                step: 5
+            })
+            .slider("pips", {
+                first: "pip",
+                last: "pip"
+            })
+            .slider("float");
+
         // Start sliders value for risk #1
         $("#slider-risk1-bad")
             .slider({
@@ -117,15 +132,7 @@ $(document).ready(
         // Start sliders value for risk #4
         $("#slider-risk4-bad")
             .slider({
-                value: 62,
-            });
-        $("#slider-risk4-likely")
-            .slider({
                 value: 15,
-            });
-        $("#slider-risk4-good")
-            .slider({
-                value: 0,
             });
 
         // Start sliders value for risk #5
@@ -231,12 +238,14 @@ function calculateRisks() {
     // Calculate count of bars fro histogram
     if (diffDays < 15) {
 
-        var answer_html = "<p>Если длительность проекта меньше 2х недели</p>";
+        var answer_html = "<p>Используйте инструмент для проектов длительностью больше 2'х недель.</p>";
         showSimpleAnswer(answer_html);
 
     } else {
 
         var riskology = new Riskology(diffDays);
+
+        var b_correct_answer = true;
 
         for (var i = 0; i < $('.toggle input[type="checkbox"]').length; i++) {
 
@@ -249,13 +258,21 @@ function calculateRisks() {
                 if (likely != 0) likely /= 100;
                 if (good != 0) good /= 100;
 
+                if (bad === good) b_correct_answer = false;
+
                 var risk = new RiskFactor(bad, likely, good);
                 riskology.addRisk(risk);
             }
         }
 
         // Create answer and show it
-        createAnswer(riskology);
+        if(b_correct_answer) createAnswer(riskology)
+        else {
+            var answer_html = '<p>Наихудшее значение задержки <b>НЕ</b> может равняться наилучшему значению. ' +
+                              'Подумайте, как этого избежать и обновите значенния рисков.</p>' +
+                              'Управление рисками подразумевает внимательность к деталям.';
+            showSimpleAnswer(answer_html);
+        }
     }
 }
 
@@ -269,7 +286,16 @@ function createAnswer(riskology) {
     // If user didn't add risks
     if (riskology.getRiskCount() == 0) {
 
-        showSimpleAnswer(getAnswerWithouRisksHtml('текст если пользователь не выбрал риски'));
+        if ($('#no-risk-4').is(":checked"))
+        {
+            var value = parseInt($('.no-risk-4').find('div.flat-slider-vertical-bad span.ui-slider-tip').text());
+            var result_str = '<p><b>С вероятностью - ' + value.toString() + '% </b> проект прекратится, вы это и сами знаете.</p>' +
+                             '<p>Учитывайте и другие риски для более детальных расчетов.</p>';
+
+            showSimpleAnswer(getAnswerWithouRisksHtml(result_str));
+        } else {
+            showSimpleAnswer(getAnswerWithouRisksHtml('Забыли про риски. Не делайте так в живых проектах.'));
+        }
 
     } else {
 
@@ -498,7 +524,14 @@ function getAnswerFullHtml(prob_0_start, prob_0_end, prob_50_start, prob_50_end,
 
     result += "<p>С <span class='prob_75'>75%-ной достоверностью</span> можно назначить сроком сдачи <span class='light_text'>" + prob_75 + "</span></p>";
 
-    result += "<p>asd asd asd asd asd asdaadsasd adasd </p>"
+    if ($('#no-risk-4').is(":checked"))
+    {
+        var value = parseInt($('.no-risk-4').find('div.flat-slider-vertical-bad span.ui-slider-tip').text());
+        result += '<p><b>С вероятностью - ' + value.toString() + '% </b> проект прекратится.</p>';
+    }
+
+    result += "<div class='quote-info'><p><b>Диаграмма совокупного риска</b> показвает результат прогонов проекта через симулятор 50 000 раз.</p>" +
+              "<p><b>Кумулятивная диаграмма</b> показывает вероятность завершения проекта от 0 до 100% во времени.</p></div>";
 
     return result;
 }

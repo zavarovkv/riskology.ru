@@ -116,7 +116,7 @@
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input id="risk-4" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                        <input id="no-risk-4" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                         Риск #4. Нарушение спецификаций
                     </label>
                 </div>
@@ -190,22 +190,30 @@
                     <p>Создать для сотрудников комфортную среду, чтобы не было желания ее покинуть.</p>
                 </div>
             </div>
-            <div class="risk-container risk-4">
+            <div class="risk-container no-risk-4">
                 <h3>Риск #4. Нарушение спецификаций</h3>
-                <p></p>
-                <div class="vertical col-lg-4 col-centered">
+                <p>Этот риск относится к краху процесса переговоров по установлению требований, которые идут в начале любого проекта. Если он реализуется, т.е. стороны не договорились между собой о требованиях,  то проект закрывается.</p>
+                <p class="quote"><b>Подсказка:</b> установите вероятность наступления риска.</p>
+                <div class="vertical col-lg-1 col-centered">
                     <div class="flat-slider-vertical-bad" id="slider-risk4-bad"></div>
-                    <div class="flat-slider-vertical-likely" id="slider-risk4-likely"></div>
-                    <div class="flat-slider-vertical-good" id="slider-risk4-good"></div>
+                </div>
+                <div class="quote-req">
+                    <h4>Рекомендация по снижению уровня риска</h4>
+                    <p>Используйте выделенного менеджера или руковоителя для разрешения противоречий и конфликтов между сторонами. </p>
                 </div>
             </div>
             <div class="risk-container risk-5">
                 <h3>Риск #5. Низкая производительность</h3>
-                <p></p>
+                <p>Закон Паркинсона гласит, что «Работа заполняет время, отпущенное на неё». Следствие из этого закона: команда разработчиков активизируется только к концу срока сдачи проекта, а в остальное время работает в полсилы.</p>
+                <p class="quote"><b>Подсказка:</b> этот фактор, как правило, сбалансирован, т.е. одинакова вероятность как позитивных, так и негативных изменений производительности. Наихудшее и наилучшее значения задержки равны по модулю.</p>
                 <div class="vertical col-lg-4 col-centered">
-                    <div class="flat-slider-vertical-bad" id="slider-risk5-bad"></div>
-                    <div class="flat-slider-vertical-likely" id="slider-risk5-likely"></div>
-                    <div class="flat-slider-vertical-good" id="slider-risk5-good"></div>
+                    <div class="flat-slider-vertical-bad risk5-slider" id="slider-risk5-bad"></div>
+                    <div class="flat-slider-vertical-likely risk5-slider" id="slider-risk5-likely"></div>
+                    <div class="flat-slider-vertical-good risk5-slider" id="slider-risk5-good"></div>
+                </div>
+                <div class="quote-req">
+                    <h4>Рекомендация по снижению уровня риска</h4>
+                    <p>Разбейте проект на короткие этапы, постоянно вызывая ощущение скорого дедлайна.</p>
                 </div>
             </div>
         </div> <!-- /container -->
@@ -269,9 +277,6 @@
             </div>
         </footer>
     </div>
-
-    <!-- load google loader, this slow library don't use locally, fack -->
-    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
 
     <!-- local js -->
     <script type="text/javascript" src="assets/libs/jquery/jquery-2.1.1.min.js"></script>
