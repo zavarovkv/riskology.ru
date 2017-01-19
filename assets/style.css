@@ -39,12 +39,47 @@ header {
     color: #000000;
     background: #ffdf00;
 }
+
 footer {
-    color: white;
-    background-color: #4a4a4a;
-    font-family: CirceWebRegular,Arial,sans-serif;
-    text-align: center;
-    font-size: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 14px;
+}
+
+footer a {
+    text-decoration: none;
+    border-bottom: 1px solid #acd;
+}
+
+footer a:hover, footer a:visited, footer a:focus {
+    color: #86b0ce;
+    text-decoration: none;
+}
+
+footer, footer a {
+    color: #888;
+}
+
+.footer-text {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 85%;
+}
+
+.footer-email {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    font-size: 85%;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
 }
 
 body {
